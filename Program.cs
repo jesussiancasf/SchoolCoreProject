@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SchoolsCore.Models;
+using System;
 
 namespace SchoolsCore
 {
@@ -6,7 +7,12 @@ namespace SchoolsCore
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            School sc = new School("Exitus",1985);
+            sc.Country = "Perú";
+            sc.City = "Sullana";
+            sc.SchoolTypes = SchoolTypes.KINDER_GARDEN;
+
+            Console.WriteLine(sc );
         }
     }
 }
