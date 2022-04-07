@@ -6,7 +6,7 @@ namespace SchoolsCore.Models
 
         public string Name
         {
-            get { return name; }
+            get { return name.ToUpper(); }
             set { name = value.ToUpper(); }
         }
         public int CreationYear { get; set; }
@@ -17,6 +17,16 @@ namespace SchoolsCore.Models
 
         public School(string name, int creationYear)
             => (this.name, CreationYear) = (name, creationYear);
+
+        public School(
+            string name,
+            int creationYear,
+            SchoolTypes schoolTypes,
+            string country="",
+            string city="")
+
+            => (this.name, CreationYear,this.SchoolTypes,Country,City) 
+            = (name, creationYear,schoolTypes,country,city);
 
         public override string ToString()
         {

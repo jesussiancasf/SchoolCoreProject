@@ -7,11 +7,8 @@ namespace SchoolsCore
     {
         static void Main(string[] args)
         {
-            School sc = new School("Exitus",1985);
-            sc.Country = "Perú";
-            sc.City = "Sullana";
-            sc.SchoolTypes = SchoolTypes.KINDER_GARDEN;
-
+            School sc = new School("Exitus",1985,SchoolTypes.KINDER_GARDEN,city:"Sullana");
+     
             Console.WriteLine(sc );
         }
     }
