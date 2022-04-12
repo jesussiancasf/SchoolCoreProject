@@ -1,4 +1,5 @@
 ﻿using SchoolsCore.Models;
+using static SchoolsCore.Util.Printer;
 using System;
 using System.Collections.Generic;
 using static System.Console;
@@ -12,33 +13,31 @@ namespace SchoolsCore
             var sEngine = new SchoolEngine();
 
             sEngine.Inicializer();
+            WriteTitle("Bienvenidos");
             printSchoolSubjects(sEngine.School);
-       
+
 
             //lambdas
             //sc.SchoolSujects.RemoveAll((subject) => subject.Name == "103");
 
 
-
         }
 
 
-
-        private static void printSchoolSubjects (School sc)
+        private static void printSchoolSubjects(School sc)
         {
-            WriteLine("-----------");
-            WriteLine($"{sc.Name} school Subjets:");
-            WriteLine("-----------");
+            WriteTitle($"{sc.Name} school Subjets:");
 
-            if (sc?.SchoolSujects != null) { 
-            foreach (var cursos in sc.SchoolSujects)
+            if (sc?.SchoolSujects != null)
             {
-                WriteLine($"{cursos.Name} - {cursos.ID}");
-            }
+                foreach (var cursos in sc.SchoolSujects)
+                {
+                    WriteLine($"{cursos.Name} - {cursos.ID}");
+                }
             }
 
         }
 
-        
+
     }
 }

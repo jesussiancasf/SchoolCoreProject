@@ -19,13 +19,13 @@ namespace SchoolsCore
 
         public void Inicializer()
         {
-            School.SchoolSujects= new List<Subject>(){
-                new Subject {Name="101",Schedule=Schedule.MORNING},
-                new Subject {Name="201",Schedule=Schedule.MORNING},
-                new Subject {Name="301",Schedule=Schedule.MORNING},
-                new Subject {Name="401",Schedule=Schedule.AFTERNOON},
-                new Subject {Name="501",Schedule=Schedule.AFTERNOON},
-                new Subject {Name="601",Schedule=Schedule.NIGHT},
+            School.SchoolSujects= new List<ClassRoom>(){
+                new ClassRoom {Name="101",Schedule=Schedule.MORNING},
+                new ClassRoom {Name="201",Schedule=Schedule.MORNING},
+                new ClassRoom {Name="301",Schedule=Schedule.MORNING},
+                new ClassRoom {Name="401",Schedule=Schedule.AFTERNOON},
+                new ClassRoom {Name="501",Schedule=Schedule.AFTERNOON},
+                new ClassRoom {Name="601",Schedule=Schedule.NIGHT},
             };
         }
 

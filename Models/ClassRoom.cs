@@ -2,13 +2,13 @@
 
 namespace SchoolsCore.Models
 {
-    class Subject
+    class ClassRoom
     {
         public string Name { get; set; }
         public string ID { get; private set; } 
         public Schedule Schedule  { get; set; }
 
-        public Subject() =>ID = Guid.NewGuid().ToString();
+        public ClassRoom() =>ID = Guid.NewGuid().ToString();
 
         
         

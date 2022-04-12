@@ -16,7 +16,7 @@ namespace SchoolsCore.Models
         public string City { get; set; }
         public SchoolTypes SchoolTypes { get; set; }
 
-        public List<Subject> SchoolSujects { get; set; }
+        public List<ClassRoom> SchoolSujects { get; set; }
 
 
         public School(string name, int creationYear)
