@@ -9,7 +9,7 @@ namespace SchoolsCore.Models
         public string Name { get; set; }
         public string ID { get; private set; }
 
-
+        public Student Student { get; set; }
         public Subject Subject { get; set; }
         public float Score { get; set; } = 0.0f;
         public Exam() => ID = Guid.NewGuid().ToString();

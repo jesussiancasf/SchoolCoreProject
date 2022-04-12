@@ -27,11 +27,10 @@ namespace SchoolsCore
             LoadClassRooms();
             LoadSubjects();
             LoadExams();
-            AssignExamsToStudents();
-           // AssignScoreToStudentExams();
+
+
 
         }
-
 
 
         private void LoadSubjects()
@@ -71,63 +70,35 @@ namespace SchoolsCore
 
         private void LoadExams()
         {
-            string[] exams = { "PC1", "PC2", "EP", "EF", "TE" };
             foreach (var classRoom in School.ClassRooms)
             {
                 foreach (var subject in classRoom.Subjects)
                 {
-                    foreach (var examName in exams)
+                    foreach (var student in classRoom.Students)
                     {
-                        subject.SubjectExams.Add(new Exam { Name = examName, Subject = subject });
+                        for (int i = 0; i < 5; i++)
+                        {
+                            var ev = new Exam
+                            {
+                                Subject = subject,
+                                Name = $"{subject.Name} Ev#{i + 1}",
+                                Score = (float)RandomGeneratorD(),
+                                Student=student
+                            };
+
+                            student.ExamList.Add(ev);
+
+                        }
                     }
 
                 }
-            }
-
-        }
-        private void AssignExamsToStudents()
-        {
-            var arrTemp = new List<Exam>();
-            foreach (var classRoom in School.ClassRooms)
-            {
-                foreach (var subject in classRoom.Subjects)
-                {
-                    arrTemp.AddRange(subject.SubjectExams);
-                }
-                foreach (var student in classRoom.Students)
-                {
-                    student.ExamList.AddRange(arrTemp);
-
-                    foreach (var exam in student.ExamList)
-                    {
-                        exam.Score = (float)RandomGeneratorD();
-
-                    }
-                }
-                arrTemp.Clear();
 
             }
         }
 
-       /* private void AssignScoreToStudentExams()
-        {
-
-            foreach (var classRoom in School.ClassRooms)
-            {
-
-                foreach (var student in classRoom.Students)
-                {
-                    foreach (var exam in student.ExamList)
-                    {
-                        exam.Score = (float)RandomGeneratorD();
-
-                    }
-
-                }
 
 
-            }
-        }*/
+
 
 
     }
