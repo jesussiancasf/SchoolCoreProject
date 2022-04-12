@@ -1,5 +1,6 @@
 ﻿using SchoolsCore.Models;
 using System;
+using System.Collections.Generic;
 using static System.Console;
 
 namespace SchoolsCore
@@ -8,23 +9,38 @@ namespace SchoolsCore
     {
         static void Main(string[] args)
         {
-            School sc = new School("Exitus",1985,SchoolTypes.KINDER_GARDEN,city:"Sullana", country:"Perú");
+            School sc = new School("Exitus", 1985, SchoolTypes.KINDER_GARDEN, city: "Sullana", country: "Perú");
 
-            sc.SchoolSujects =new Subject[]{
+
+            sc.SchoolSujects = new List<Subject>(){
                 new Subject() {Name="101"},
                 new Subject() {Name="102"},
                 new Subject() {Name="103"}
-        };
+            };
 
-            int a = 3;
-            int b = 5;
-            int c = 4;
 
-            int v = a > b ? a : c;
+            printSchoolSubjects(sc);
+            //Manera Larga
+            sc.SchoolSujects.RemoveAll(Predicates);
 
-            WriteLine(v);
-           // printSchoolSubjects(sc);
+            //manera simplificada
+            sc.SchoolSujects.RemoveAll(delegate (Subject subject)
+            {
+                return subject.Name=="102";
+            });
 
+
+            //lambdas
+            sc.SchoolSujects.RemoveAll((subject) => subject.Name == "103");
+
+
+            printSchoolSubjects(sc);
+
+        }
+
+        private static bool Predicates(Subject obj)
+        {
+            return obj.Name == "101";
         }
 
         private static void printSchoolSubjects(School sc)

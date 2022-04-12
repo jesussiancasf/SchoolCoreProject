@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace SchoolsCore.Models
 {
     class School
@@ -14,7 +16,7 @@ namespace SchoolsCore.Models
         public string City { get; set; }
         public SchoolTypes SchoolTypes { get; set; }
 
-        public Subject[] SchoolSujects { get; set; }
+        public List<Subject> SchoolSujects { get; set; }
 
 
         public School(string name, int creationYear)
