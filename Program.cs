@@ -9,41 +9,22 @@ namespace SchoolsCore
     {
         static void Main(string[] args)
         {
-            School sc = new School("Exitus", 1985, SchoolTypes.KINDER_GARDEN, city: "Sullana", country: "Perú");
+            var sEngine = new SchoolEngine();
 
-
-            sc.SchoolSujects = new List<Subject>(){
-                new Subject() {Name="101"},
-                new Subject() {Name="102"},
-                new Subject() {Name="103"}
-            };
-
-
-            printSchoolSubjects(sc);
-            //Manera Larga
-            sc.SchoolSujects.RemoveAll(Predicates);
-
-            //manera simplificada
-            sc.SchoolSujects.RemoveAll(delegate (Subject subject)
-            {
-                return subject.Name=="102";
-            });
-
+            sEngine.Inicializer();
+            printSchoolSubjects(sEngine.School);
+       
 
             //lambdas
-            sc.SchoolSujects.RemoveAll((subject) => subject.Name == "103");
+            //sc.SchoolSujects.RemoveAll((subject) => subject.Name == "103");
 
 
-            printSchoolSubjects(sc);
 
         }
 
-        private static bool Predicates(Subject obj)
-        {
-            return obj.Name == "101";
-        }
 
-        private static void printSchoolSubjects(School sc)
+
+        private static void printSchoolSubjects (School sc)
         {
             WriteLine("-----------");
             WriteLine($"{sc.Name} school Subjets:");
@@ -58,12 +39,6 @@ namespace SchoolsCore
 
         }
 
-        private static void printSubjectForEach(Subject[] subjectsAray)
-        {
-            foreach (var item in subjectsAray)
-            {
-                WriteLine($"{item.Name} - {item.ID}");
-            }
-        }
+        
     }
 }
