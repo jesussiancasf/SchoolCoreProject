@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 
 namespace SchoolsCore.Models
 {
     class School
     {
+        public string ID { get; set; } = Guid.NewGuid().ToString();
         private string name;
 
         public string Name
@@ -14,9 +16,9 @@ namespace SchoolsCore.Models
         public int CreationYear { get; set; }
         public string Country { get; set; }
         public string City { get; set; }
-        public SchoolTypes SchoolTypes { get; set; }
+        public SchoolType SchoolTypes { get; set; }
 
-        public List<ClassRoom> SchoolSujects { get; set; }
+        public List<ClassRoom> ClassRooms { get; set; }
 
 
         public School(string name, int creationYear)
@@ -25,7 +27,7 @@ namespace SchoolsCore.Models
         public School(
             string name,
             int creationYear,
-            SchoolTypes schoolTypes,
+            SchoolType schoolTypes,
             string country="",
             string city="")
 

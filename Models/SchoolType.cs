@@ -1,6 +1,6 @@
 ﻿namespace SchoolsCore.Models
 {
-    public enum SchoolTypes
+    public enum SchoolType
     {
         PRIMARY_SCHOOL,
         SECONDAY_SCHOOL,

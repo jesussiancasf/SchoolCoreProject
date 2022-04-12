@@ -14,7 +14,7 @@ namespace SchoolsCore
 
             sEngine.Inicializer();
             WriteTitle("Bienvenidos");
-            printSchoolSubjects(sEngine.School);
+            PrintStudentsSubjectAndExams(sEngine.School);
 
 
             //lambdas
@@ -24,20 +24,68 @@ namespace SchoolsCore
         }
 
 
-        private static void printSchoolSubjects(School sc)
+        private static void printClassRoomsSubjectsAndExams(School sc)
         {
             WriteTitle($"{sc.Name} school Subjets:");
 
-            if (sc?.SchoolSujects != null)
+            if (sc?.ClassRooms != null)
             {
-                foreach (var cursos in sc.SchoolSujects)
+                foreach (var classRoom in sc.ClassRooms)
                 {
-                    WriteLine($"{cursos.Name} - {cursos.ID}");
+                    WriteTitle($"ClassRoom {classRoom.Name}");
+
+                    foreach (var subject in classRoom.Subjects)
+                    {
+                        WriteLine();
+
+                        WriteTitle($"{classRoom.Subjects.IndexOf(subject) + 1})  {subject.Name} - {subject.ID}");
+
+
+                        foreach (var exams in subject.SubjectExams)
+                        {
+                            WriteLine($"Eval {subject.SubjectExams.IndexOf(exams) + 1})  {exams.Name} - {exams.ID}");
+                        }
+                    }
+
+                    WriteLine();
                 }
             }
 
         }
 
 
+        private static void PrintStudentsSubjectAndExams(School sc)
+        {
+            WriteTitle($"{sc.Name} school Subjets:");
+
+            if (sc?.ClassRooms != null)
+            {
+                foreach (var classRoom in sc.ClassRooms)
+                {
+                    WriteTitle($"ClassRoom {classRoom.Name}");
+
+                    foreach (var student in classRoom.Students)
+                    {
+                        WriteLine();
+
+                        WriteLine($"{classRoom.Students.IndexOf(student) + 1})  {student.Name} - {student.ID}");
+
+                        
+
+                        foreach (var exam in student.ExamList)
+                        {
+                            WriteLine($" {exam.Name} - NOTA: {exam.Score}");
+                        }
+
+
+                    }
+
+                    WriteLine();
+
+                }
+
+
+            }
+        }
     }
 }
